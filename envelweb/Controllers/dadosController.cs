@@ -19,10 +19,18 @@ namespace envelweb.Controllers
             _context = context;
         }
 
+        //TESTEfgdgfdghd
+
         // GET: dados
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string textoPesquisa)
         {
-            return View(await _context.dados.ToListAsync());
+            var lancamentos = from l in _context.dados
+                              select l;
+            if(!String.IsNullOrEmpty(textoPesquisa))
+            {
+                lancamentos = lancamentos.Where(p => p.categoria.Contains(textoPesquisa));
+            }
+            return View(await lancamentos.ToListAsync());
         }
 
         // GET: dados/Details/5
@@ -43,7 +51,7 @@ namespace envelweb.Controllers
             return View(dados);
         }
 
-        // GET: dados/Create
+        // GET: dados/Create jjjjjjjjjjjjjjj
         public IActionResult Create()
         {
             return View();
