@@ -1,0 +1,74 @@
+﻿@model IEnumerable<envelweb.Models.dados>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<p>
+    <a asp-action="Create">Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Categoria
+            </th>
+            <th>
+                Data
+            </th>
+            <th>
+                Tipo
+            </th>
+            <th>
+                Banco
+            </th>
+            <th>
+                Valor
+            </th>
+            <th>
+                Juros
+            </th>
+            <th>
+                Desconto
+            </th>
+            <th>
+                Nota
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.categoria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pagrec)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.banco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.valor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.juros)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.desconto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nota)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Editar</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

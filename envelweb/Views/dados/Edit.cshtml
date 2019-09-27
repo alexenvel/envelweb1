@@ -1,0 +1,69 @@
+﻿@model envelweb.Models.dados
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>dados</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id" />
+            <div class="form-group">
+                <label asp-for="categoria" class="control-label"></label>
+                <input asp-for="categoria" class="form-control" />
+                <span asp-validation-for="categoria" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="data" class="control-label"></label>
+                <input asp-for="data" class="form-control" />
+                <span asp-validation-for="data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="pagrec" class="control-label"></label>
+                <input asp-for="pagrec" class="form-control" />
+                <span asp-validation-for="pagrec" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="banco" class="control-label"></label>
+                <input asp-for="banco" class="form-control" />
+                <span asp-validation-for="banco" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="valor" class="control-label"></label>
+                <input asp-for="valor" class="form-control" />
+                <span asp-validation-for="valor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="juros" class="control-label"></label>
+                <input asp-for="juros" class="form-control" />
+                <span asp-validation-for="juros" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="desconto" class="control-label"></label>
+                <input asp-for="desconto" class="form-control" />
+                <span asp-validation-for="desconto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="nota" class="control-label"></label>
+                <input asp-for="nota" class="form-control" />
+                <span asp-validation-for="nota" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
